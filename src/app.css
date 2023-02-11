@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply  bg-gradient-to-br min-h-screen from-pink-900 via-pink-600 to-pink-900 text-pink-100 animate-bg-gradient;
+  }
+
+  input[type="text"] {
+    @apply transition-all bg-pink-100 rounded-full text-black px-3 py-2 focus:outline outline-offset-2 outline-pink-100 shadow-md shadow-pink-50;
+  }
+
+  button {
+    @apply transition-all rounded-full max-w-max shadow-md shadow-pink-50 hover:bg-pink-400 hover:text-pink-100 bg-pink-100 px-3 py-2 hover:shadow-xl hover:shadow-pink-100 text-black font-semibold focus:outline  outline-offset-2 outline-pink-200;
+  }
+
+  form {
+    @apply grid max-w-sm gap-4;
+  }
+
+  label {
+    @apply font-semibold;
+  }
+}
+
+@layer components {
+  .input-wrapper {
+    @apply grid gap-1;
+  }
+}
+
+@layer utilities {
+	.animate-bg-gradient {
+		--time: 7.5s;
+		background-size: 400%;
+
+		-webkit-animation: BackgroundPositionAnimation var(--time) ease infinite;
+		-moz-animation: BackgroundPositionAnimation var(--time) ease infinite;
+		animation: BackgroundPositionAnimation var(--time) ease infinite;
+	}
+
+	@keyframes BackgroundPositionAnimation {
+		0%,
+		100% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+	}
+
+	.bg-gradient-primary {
+		@apply bg-gradient-to-r from-primary to-blue-400;
+	}
+
+	.text-gradient-primary {
+		@apply bg-gradient-primary bg-clip-text;
+	}
+}
