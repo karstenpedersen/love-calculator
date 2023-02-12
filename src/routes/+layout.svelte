@@ -1,10 +1,9 @@
 <script>
 	import '../app.css';
+	import Header from '../components/Header.svelte';
 </script>
 
-<h1 class="text-center text-5xl font-semibold uppercase">
-	<a href="/">Love Calculator</a>
-</h1>
+<Header />
 <main>
 	<slot />
 </main>
