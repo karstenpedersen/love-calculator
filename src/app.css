@@ -3,32 +3,41 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply  bg-gradient-to-br min-h-screen from-pink-900 via-pink-500 to-pink-900 text-pink-100 animate-bg-gradient;
-  }
+	body {
+		@apply bg-gradient-to-br min-h-screen from-pink-500 via-violet-500 to-pink-500 text-pink-100 animate-bg-gradient;
+	}
 
-  input[type="text"] {
-    @apply text-lg rounded-tl-none transition-all bg-pink-100 rounded-full text-black px-3 py-2 focus:outline outline-offset-2 outline-pink-100 shadow-md shadow-pink-50;
-  }
+	input[type='text'] {
+		@apply text-lg rounded-tl-none transition-all bg-pink-100 rounded-full text-black px-3 py-2 focus:outline outline-offset-2 outline-pink-100 shadow-md;
+	}
 
-  button {
-    @apply text-lg uppercase transition-all rounded-full max-w-max shadow-md shadow-pink-50 hover:bg-pink-400 hover:text-pink-100 bg-pink-100 px-6 py-2 hover:shadow-xl hover:shadow-pink-100 text-black font-semibold focus:outline  outline-offset-2 outline-pink-200;
-  }
+	button {
+		@apply text-2xl font-display uppercase transition-all rounded-full max-w-max shadow-md  hover:bg-pink-200 from-pink-300 to-violet-300 bg-gradient-to-br px-6 pt-3 pb-1 hover:shadow-md hover:scale-105 text-black font-semibold focus:outline  outline-offset-2 outline-pink-200;
+	}
 
-  label {
-    @apply font-semibold text-sm;
-  }
+	label {
+		@apply font-semibold text-2xl font-display;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-display;
+	}
 }
 
 @layer components {
-  .input-wrapper {
-    @apply grid text-left;
-  }
+	.input-wrapper {
+		@apply grid text-left;
+	}
 }
 
 @layer utilities {
 	.animate-bg-gradient {
-		--time: 7.5s;
+		--time: 20s;
 		background-size: 400%;
 
 		-webkit-animation: BackgroundPositionAnimation var(--time) ease infinite;

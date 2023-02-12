@@ -1,8 +1,10 @@
 <script lang="ts">
+	import seedrandom from 'seedrandom';
+
 	let calculated = false;
 	let matchProcent = 0;
-	let name1 = 'Tobias';
-	let name2 = 'Karsten';
+	let name1 = '';
+	let name2 = '';
 	let errorMessage = '';
 
 	let specialNames = [
@@ -30,10 +32,14 @@
 		let processedName1 = name1.toLowerCase();
 		let processedName2 = name2.toLowerCase();
 
+		let procssedNames = [processedName1, processedName2].sort();
+
+		let rng = seedrandom(procssedNames.join());
+
 		if (checkName(processedName1) && checkName(processedName2)) {
-			matchProcent = 90 + Math.floor(Math.random() * 10);
+			matchProcent = 90 + Math.floor(rng() * 10);
 		} else {
-			matchProcent = Math.floor(Math.random() * 100);
+			matchProcent = Math.floor(rng() * 100);
 		}
 
 		calculated = true;
@@ -53,11 +59,11 @@
 
 <section class="flex justify-center items-center min-h-screen">
 	{#if calculated}
-		<div class="flex text-center flex-col justify-center items-center gap-4">
-			<p class="font-bold text-7xl">{matchProcent}% match</p>
-			<div class="text-2xl flex gap-4 mb-20 items-center">
+		<div class="flex text-center flex-col justify-center items-center gap-8">
+			<p class="font-bold text-8xl font-display">{matchProcent}% match</p>
+			<div class="text-4xl font-display flex gap-4 mb-20 items-center">
 				<p>{name1}</p>
-				<span class="text-4xl">💗</span>
+				<span>💗</span>
 				<p>{name2}</p>
 			</div>
 			<button on:click={reset}>Recalculate</button>
@@ -79,7 +85,7 @@
 				</div>
 			</div>
 
-			<div class="grid gap-6">
+			<div class="flex flex-col items-center gap-8">
 				<button>Calculate</button>
 				<p class="italic">{errorMessage}</p>
 			</div>
